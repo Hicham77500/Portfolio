@@ -68,18 +68,19 @@ body {
 }
 .cercle-portrait {
   margin: 20px 0;
-  width: 150px;
-  height: 150px;
+  width: 0px;
+  height: 0px;
   border-radius: 50%;
   position: relative;
   box-shadow: 26px 26px 53px #292929, -26px -26px 53px #3d3d3d;
 }
 .cercle-portrait img {
-  width: 100px;
+  width: 150px;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  border-radius: 50px;
 }
 
 .logo-cercle {
