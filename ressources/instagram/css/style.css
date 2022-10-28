@@ -1,0 +1,230 @@
+/********** STYLES PROJET #1: INSTAGRAM *********
+
+Les styles de ce fichier servent à se concentrer principalement sur
+l'utilisation des containers, des lignes, ainsi que des colonnes.
+
+Vous pouvez toutefois l'analyser et le manipuler plus en détail 
+si vous souhaitez vous familiariser un peu plus avec le CSS.
+
+Bonne session,
+Valentin
+
+ ************************************************/
+
+
+
+/********** STYLE GÉNÉRAL **********/
+
+html, body {
+    background: #F4F4F4;
+}
+
+/********** STYLE DU HEADER **********/
+
+.header {
+    background: #FFF;
+    padding: 16px 0;
+    border-bottom: 1px solid #D5D5D5;
+}
+
+.header svg {
+    width: auto;
+    height: 22px;
+    margin: 0 6px;
+    padding-bottom: 2px;
+}
+
+.logo img {
+    width: 128px;
+    height: auto;
+    
+}
+
+.rechercher-text {
+    background: #F6F6F6;
+    padding: 2px 32px;
+    border-radius: 4px;
+    border: 1px solid #D5D5D5;
+    margin: 0;
+    text-align: center;
+    font-weight: 300;
+    color: #777777;
+    font-size: 14px;
+}
+
+.icones {
+    margin-top: -6px;
+    text-align: right;
+}
+
+/********** STYLE DU MAIN **********/
+
+.main {
+    padding-top: 32px;
+    background: #F4F4F4;
+}
+
+/********** STYLE DES STORIES **********/
+
+.stories {
+    background: #FFF;
+    border-radius: 3px;
+    border: 1px solid #D5D5D5;
+    padding: 16px 12px 12px 12px;
+
+}
+
+.stories .col-auto {
+    padding: 0;
+}
+
+.stories img {
+    height: 64px;
+    width: auto;
+    color: #777777;
+    margin: 0 8px;
+    border: 2px solid #DA2E79;
+    border-radius: 50%;
+}
+
+.stories p {
+    text-align: center;
+    margin: 0;
+    font-size: 11px;
+}
+
+/********** STYLE DU POSTE **********/
+
+.posts {
+    padding-top: 24px;
+}
+
+.single-post {
+    margin-bottom: 24px;
+    background: #FFF;
+    border-radius: 3px;
+    border: 1px solid #D5D5D5;
+}
+
+.post-author {
+    padding: 8px 0;
+}
+
+.post-author-image {
+    padding-right: 0 !important;
+}
+
+.post-author-image img {
+    height: 40px;
+    width: auto;
+    border: 2px solid #DA2E79;
+    border-radius: 50%;
+}
+
+.post-author-account p {
+    margin-bottom: 0;
+    line-height: 12px;
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.post-author-more p {
+    text-align: right;
+    margin-top: -4px;
+}
+
+.post-content {
+    background-image: url('../images/post-1.jpg');
+    height: 520px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.post-info-actions {
+    padding: 8px 0;
+}
+
+.post-info-actions svg {
+    height: 24px;
+    width: auto;
+    margin: 0 6px;
+}
+
+.post-info-actions svg:first-child {
+    margin-left: 0;
+}
+
+.post-info-actions svg:last-child{
+    margin-right: -4px;
+}
+
+.post-info-actions .bi-heart {
+    margin-bottom: -4px;
+}
+.post-info-likes p {
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.post-info-comments p {
+    font-size: 14px;
+}
+
+.post-info-comments .comment-author {
+    font-weight: 700;
+}
+
+.post-info-comments svg {
+    width: 14px;
+    height: auto;
+    margin-top: -8px;
+    color: #a5a5a5;
+}
+
+.post-info-add-comment {
+    padding: 16px 0 20px 0;
+    font-size: 14px;
+    border-top: 1px solid #E5E5E5;
+}
+
+.post-info-add-comment p {
+    margin-bottom: 0;
+}
+
+.post-info-add-comment .comment-text {
+    color: #A5A5A5;
+}
+
+.post-info-add-comment .comment-btn {
+    font-weight: 500;
+    color: rgb(172, 202, 241);
+}
+
+/********** STYLE DE LA SIDEBAR **********/
+
+.sidebar .row {
+    margin-top: 20px;
+    margin-left: 8px;
+}
+
+.sidebar-profile-pic {
+    padding-right: 0 !important;
+}
+
+.sidebar-profile-pic img {
+    width: 64px;
+    height: auto;
+}
+
+.sidebar p {
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 58px;
+}
+
+@media (min-width: 1400px) {
+    .container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+        max-width: 960px !important;
+    }
+}
