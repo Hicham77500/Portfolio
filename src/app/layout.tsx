@@ -8,17 +8,33 @@ const body = IBM_Plex_Sans({ subsets: ['latin'], variable: '--font-body', weight
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://example.com'),
-  title: 'Hicham Guendouz • Fullstack Data/IA Engineer',
-  description: 'Portfolio minimaliste et crédible pour un développeur fullstack orienté data & IA.',
+  title: 'Hicham - Fullstack Developer (Data & Automation)',
+  description:
+    'Développeur fullstack spécialisé en React, Next.js, Node.js et Python. Expérience en data pipelines, microservices et automatisation.',
+  keywords: [
+    'développeur fullstack',
+    'react developer',
+    'next.js developer',
+    'node.js backend',
+    'data pipeline',
+    'python data',
+    'apache spark',
+    'microservices architecture',
+    'docker backend',
+  ],
   openGraph: {
-    title: 'Hicham Guendouz • Fullstack Data/IA Engineer',
-    description: 'Expériences premium, craft et IA pragmatique.',
+    title: 'Hicham - Fullstack Developer (Data & Automation)',
+    description:
+      'Développement d\'applications web, pipelines de données et systèmes backend scalables.',
     url: 'https://example.com',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
     creator: '@hicham_dev',
+    title: 'Hicham - Fullstack Developer (Data & Automation)',
+    description:
+      'React, Next.js, Node.js, Python, data pipelines et microservices pour des applications web robustes.',
   },
 };
 

@@ -4,6 +4,7 @@ export type CaseStudy = {
   architecture: string[];
   stack: string[];
   demonstrates: string;
+  repoUrl?: string;
 };
 
 export type ExperienceItem = {
@@ -21,27 +22,39 @@ export type EducationItem = {
 };
 
 export const navSections = [
-  { id: 'hero', label: 'Hero', href: '#hero', hint: 'Intro' },
-  { id: 'positioning', label: 'Positionnement', href: '#positioning', hint: 'Approche' },
-  { id: 'architecture', label: 'Architecture', href: '#architecture', hint: 'Systeme' },
-  { id: 'projects', label: 'Projets', href: '#projects', hint: 'Cases' },
-  { id: 'skills', label: 'Competences', href: '#skills', hint: 'Stack' },
-  { id: 'experience', label: 'Experience', href: '#experience', hint: 'Parcours' },
-  { id: 'education', label: 'Formation', href: '#education', hint: 'Etudes' },
-  { id: 'contact', label: 'Contact', href: '#contact', hint: 'CTA' },
+  { id: 'hero', label: 'Intro', href: '#hero' },
+  { id: 'positioning', label: 'Positionnement', href: '#positioning' },
+  { id: 'architecture', label: 'Architecture', href: '#architecture' },
+  { id: 'projects', label: 'Projets', href: '#projects' },
+  { id: 'production', label: 'Production', href: '#production' },
+  { id: 'skills', label: 'Compétences', href: '#skills' },
+  { id: 'experience', label: 'Parcours', href: '#experience' },
+  { id: 'contact', label: 'Contact', href: '#contact' },
 ] as const;
 
 export const heroContent = {
-  eyebrow: 'Fullstack data / IA',
-  title: 'Guendouz Hicham',
+  eyebrow: 'Développeur full stack - React, Node.js, Python',
+  title: 'Hicham - Fullstack Developer (Data & Automation)',
   description:
-    'Developpeur fullstack oriente data et IA. Je construis des applications web et des systemes data de bout en bout: interface, API, backend, stockage et visualisation.',
+    'React / Next.js / Node.js / Python / Data pipelines / Microservices. Développement d\'applications web, de pipelines de données et de systèmes backend scalables.',
   primaryAction: { label: 'Voir les projets', href: '#projects' },
   secondaryAction: { label: 'Me contacter', href: '#contact' },
   metrics: [
-    { label: 'Frontend', value: 'React / Next.js', detail: 'Interfaces et design system Tailwind' },
-    { label: 'Backend', value: 'Node.js / TypeScript', detail: 'APIs Express, Docker, bases SQL/NoSQL' },
-    { label: 'Data', value: 'Python / Spark / HDFS', detail: 'Pipelines data et visualisation Power BI' },
+    {
+      label: 'Frontend',
+      value: 'React / Next.js / TypeScript',
+      detail: 'Interfaces maintenables, composants réutilisables et intégration Tailwind.',
+    },
+    {
+      label: 'Backend',
+      value: 'Node.js / Microservices / Docker',
+      detail: 'APIs TypeScript structurées et architecture orientée services.',
+    },
+    {
+      label: 'Data',
+      value: 'Python / Spark / Airflow',
+      detail: 'Pipelines de données, ingestion et visualisation de KPIs.',
+    },
   ],
 } as const;
 
@@ -49,65 +62,71 @@ export const positioningContent = {
   eyebrow: 'Positionnement',
   title: 'Approche technique',
   intro:
-    'Profil fullstack avec specialisation data et IA. Objectif: concevoir des architectures lisibles qui relient ingestion, traitement backend et interface utilisateur.',
+    'Profil full stack avec une spécialisation data et automatisation. Objectif : concevoir des architectures lisibles reliant ingestion de données, backend et interface utilisateur.',
   blocks: [
     {
       label: 'API',
-      description: 'Integration de sources externes et exposition d endpoints propres pour le frontend et la data.',
+      description: 'Intégration de sources externes et exposition d\'APIs propres pour les applications frontend et les flux data.',
     },
     {
       label: 'Backend',
-      description: 'Services Node.js/TypeScript structures, logique metier claire, conteneurisation Docker.',
+      description: 'Services Node.js / TypeScript structurés, logique métier claire et conteneurisation Docker.',
     },
     {
       label: 'Data pipelines',
-      description: 'Flux Python/Spark/HDFS pour ingestion, transformation et restitution orientee usage.',
+      description: 'Flux Python / Spark / HDFS pour ingestion, transformation et restitution orientée usages.',
     },
     {
       label: 'UI',
-      description: 'Interfaces React/Next.js lisibles, components reutilisables, accessibilite et coherence Tailwind.',
+      description: 'Interfaces React / Next.js lisibles, composants réutilisables et cohérence Tailwind.',
     },
   ],
 } as const;
 
-export const architectureNodes = ['Donnees', 'API ingestion', 'Backend', 'Stockage', 'Interface'] as const;
+export const architectureNodes = ['Données', 'API ingestion', 'Backend', 'Stockage', 'Interface'] as const;
 
 export const caseStudies: CaseStudy[] = [
   {
-    title: 'Pipeline Big Data Binance',
-    context: 'Pipeline de traitement de donnees de marche avec ingestion, transformation et visualisation.',
+    title: 'Big Data Pipeline - Binance Market Data',
+    context: 'Pipeline de traitement de données crypto conçu pour analyser les marchés en quasi temps réel.',
     architecture: [
-      'Ingestion des donnees via Python',
-      'Traitement distribue avec Spark',
-      'Stockage sur HDFS et MongoDB',
-      'Visualisation des resultats dans Power BI',
+      'Ingestion des données via l\'API Binance',
+      'Stockage distribué sur HDFS',
+      'Traitements Apache Spark (agrégats prix / volume)',
+      'Stockage des résultats dans MongoDB',
+      'Visualisation des KPIs dans Power BI',
     ],
-    stack: ['Python', 'Spark', 'HDFS', 'MongoDB', 'Power BI'],
-    demonstrates: 'Construction d un pipeline data complet de l ingestion a la restitution.',
+    stack: ['Python', 'Apache Spark', 'HDFS', 'MongoDB', 'Power BI'],
+    demonstrates: 'Conception d\'un pipeline data complet : ingestion, traitement et restitution de KPIs.',
+    repoUrl: 'https://github.com/Hicham77500/binance',
+  },
+  {
+    title: 'Delivery Services - Microservices Backend',
+    context: 'Architecture backend d\'une plateforme de livraison construite en microservices.',
+    architecture: [
+      'Domain Driven Design (DDD)',
+      'Test Driven Development (TDD)',
+      'Architecture orientée services',
+      'Cluster MariaDB Galera pour la haute disponibilité',
+      'Conteneurisation Docker',
+      'API Node.js / TypeScript',
+    ],
+    stack: ['Node.js', 'TypeScript', 'MariaDB Galera', 'Docker'],
+    demonstrates: 'Conception d\'un backend microservices structuré, testé et conteneurisé.',
+    repoUrl: 'https://github.com/Hicham77500/delivery-services',
   },
   {
     title: 'Dashboard NASA',
-    context: 'Dashboard de visualisation de donnees spatiales via l API NASA.',
+    context: 'Dashboard de visualisation de données spatiales via l\'API NASA.',
     architecture: [
-      'Collecte des donnees depuis NASA API',
-      'Backend Flask pour normaliser et servir les flux',
-      'Stockage des donnees dans MongoDB',
-      'Interface dashboard pour consultation des donnees',
+      'Collecte des données via NASA API',
+      'Backend Flask pour normaliser les flux',
+      'Stockage dans MongoDB',
+      'Interface de visualisation des données',
     ],
     stack: ['Python', 'Flask', 'MongoDB', 'NASA API'],
-    demonstrates: 'Integration API externe et transformation des donnees en interface exploitable.',
-  },
-  {
-    title: 'Delivery Services',
-    context: 'Plateforme backend orientee services avec observabilite.',
-    architecture: [
-      'API backend Node.js/Express en TypeScript',
-      'Base de donnees MariaDB Galera',
-      'Conteneurisation Docker',
-      'Monitoring avec Prometheus et Grafana',
-    ],
-    stack: ['Node.js', 'TypeScript', 'Express', 'MariaDB Galera', 'Docker', 'Prometheus', 'Grafana'],
-    demonstrates: 'Conception d un backend structure et exploitable avec monitoring.',
+    demonstrates: 'Intégration API externe et transformation des données en interface exploitable.',
+    repoUrl: 'https://github.com/Hicham77500/Dashboard_Nasa',
   },
   {
     title: 'BerserkerCut',
@@ -115,59 +134,73 @@ export const caseStudies: CaseStudy[] = [
     architecture: [
       'Client mobile React Native (Expo)',
       'Backend Node.js pour la logique applicative',
-      'Stockage des donnees avec MongoDB',
+      'Stockage des données avec MongoDB',
       'Synchronisation app et API',
     ],
     stack: ['React Native', 'Expo', 'Node.js', 'MongoDB'],
-    demonstrates: 'Mise en place d un systeme mobile connecte a un backend.',
-  },
-  {
-    title: 'Chelloises 2026',
-    context: 'Projet web Next.js axe accessibilite et design system Tailwind.',
-    architecture: [
-      'Application Next.js/React',
-      'Components reutilisables via design system Tailwind',
-      'Structure orientee accessibilite',
-      'Pages optimiseses pour une lecture claire du contenu',
-    ],
-    stack: ['Next.js', 'React', 'Accessibilite', 'Design system Tailwind'],
-    demonstrates: 'Capacite a produire un frontend structure, lisible et maintenable.',
-  },
-  {
-    title: "Ciseaux d'Or",
-    context: 'Application React/Vite avec interface Tailwind.',
-    architecture: [
-      'Frontend React avec Vite',
-      'Composants UI structures avec Tailwind',
-      'Organisation du contenu orientee consultation',
-      'Deploiement web simple',
-    ],
-    stack: ['React', 'Vite', 'Tailwind'],
-    demonstrates: 'Implementation rapide d une interface web claire et responsive.',
+    demonstrates: 'Développement d\'une application mobile connectée à un backend.',
+    repoUrl: 'https://github.com/Hicham77500/BerserkerCut',
   },
 ];
 
 export const skillGroups = [
   {
     title: 'Frontend',
-    stack: ['React', 'Next.js', 'Tailwind', 'TypeScript'],
+    stack: ['React', 'Next.js', 'TypeScript', 'Tailwind'],
   },
   {
     title: 'Backend',
-    stack: ['Node.js', 'Express', 'MongoDB', 'MySQL', 'Docker'],
+    stack: ['Node.js', 'Python', 'Microservices', 'Docker'],
   },
   {
-    title: 'Data',
-    stack: ['Python', 'Spark', 'HDFS', 'Power BI', 'API ingestion'],
+    title: 'Data & Storage',
+    stack: ['Spark', 'Airflow', 'MongoDB', 'MariaDB / MySQL'],
   },
 ] as const;
+
+export const complementarySkills = {
+  frontend: ['HTML', 'CSS', 'JavaScript', 'Tailwind'],
+  backend: ['PHP', 'Express.js'],
+  databases: ['MySQL', 'MongoDB', 'MariaDB'],
+  tools: ['Git', 'Docker', 'Linux'],
+} as const;
+
+export type ProductionProject = {
+  title: string;
+  description: string;
+  work: string[];
+  url: string;
+  repoStatus?: string;
+};
+
+export const productionProjects: ProductionProject[] = [
+  {
+    title: 'Ciseauxdor',
+    description: 'Maintenance et évolution d\'un site web en production.',
+    work: ['Optimisation SEO', 'Amélioration des performances', 'Nouvelles fonctionnalités'],
+    url: 'https://ciseauxdor.ovh/',
+    repoStatus: 'Repository privé (non public)',
+  },
+  {
+    title: 'Chellois-es 2026',
+    description: 'Refonte et maintenance d\'un site web sous Next.js.',
+    work: [
+      'Développement React / Next.js',
+      'Intégration Tailwind',
+      'Optimisation UX/UI',
+      'Accessibilité',
+    ],
+    url: 'https://chellois-es2026.fr/',
+    repoStatus: 'Repository privé (non public)',
+  },
+];
 
 export const experience: ExperienceItem[] = [
   {
     org: 'SN SociaNova',
-    role: 'Developpeur Fullstack (alternance)',
-    period: '2025 -> aujourd hui',
-    summary: 'Maintenance et evolution d un logiciel medico-social.',
+    role: 'Développeur Fullstack (alternance)',
+    period: '2025 -> aujourd\'hui',
+    summary: 'Maintenance et évolution d\'un logiciel médico-social.',
     stack: ['PHP', 'Angular', 'JavaScript'],
   },
   {
@@ -178,27 +211,27 @@ export const experience: ExperienceItem[] = [
     stack: ['Salesforce', 'HubSpot', 'Power BI'],
   },
   {
-    org: 'Armee de Terre',
-    role: "Caporal chef d equipe",
+    org: 'Armée de Terre',
+    role: "Caporal-chef d\'équipe",
     period: '2017 -> 2021',
-    summary: 'Gestion d equipe et prise de decision en environnement exigeant.',
+    summary: 'Gestion d\'équipe et prise de décision en environnement exigeant.',
   },
 ];
 
 export const education: EducationItem[] = [
   {
     school: 'IPSSI',
-    program: 'Mastere Big Data & IA',
+    program: 'Mastère Big Data & IA',
     period: '2024 -> 2026',
   },
   {
     school: 'AFPA',
-    program: 'Concepteur Developpeur d Applications',
+    program: 'Concepteur Développeur d\'Applications',
     period: '2022 -> 2023',
   },
   {
     school: 'AFPA',
-    program: 'Developpeur Web & Web Mobile',
+    program: 'Développeur Web & Web Mobile',
     period: '2021 -> 2022',
   },
 ];

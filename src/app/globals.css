@@ -10,6 +10,10 @@ html, body {
   height: 100%;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
   background-color: var(--color-bg-primary);
@@ -48,4 +52,10 @@ textarea:focus-visible {
 
 section[tabindex="-1"]:focus {
   outline: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }

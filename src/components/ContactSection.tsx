@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { SectionHeader } from '@/components/SectionHeader';
+import { ContactForm } from '@/components/forms/ContactForm';
 
 type ContactSectionProps = {
   id?: string;
@@ -22,36 +23,50 @@ export function ContactSection({
   links,
 }: ContactSectionProps) {
   const resolvedHeadingId = headingId ?? `${id}-title`;
+  const formAccessKey = process.env.NEXT_PUBLIC_WEB3FORMS_KEY;
 
   return (
     <section id={id} aria-labelledby={resolvedHeadingId} className="py-14 lg:py-20 border-t border-border/60 text-text">
       <SectionHeader eyebrow={eyebrow} title={title} headingId={resolvedHeadingId} />
-      <div className="content grid gap-10 lg:grid-cols-2">
+      <div className="content grid gap-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)]">
         <div className="space-y-6 text-base text-text-muted">
           <p>{description}</p>
-          <p className="text-sm text-text-muted">Disponible pour echanger sur des opportunites fullstack, data engineering et IA appliquee.</p>
+          <p className="text-sm text-text-muted">
+            Disponible pour échanger sur des projets techniques ou des missions freelance.
+          </p>
+          <div className="rounded-2xl border border-border bg-surface p-6 shadow-soft">
+            <dl className="space-y-4 text-sm">
+              <div>
+                <dt className="text-xs font-mono uppercase tracking-[0.25em] text-text-muted">GitHub</dt>
+                <dd>
+                  <a
+                    href={links.github}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="text-text hover:text-accent transition duration-200 ease-out focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus"
+                  >
+                    Profil GitHub
+                  </a>
+                </dd>
+              </div>
+              <div>
+                <dt className="text-xs font-mono uppercase tracking-[0.25em] text-text-muted">LinkedIn</dt>
+                <dd>
+                  <a
+                    href={links.linkedin}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="text-text hover:text-accent transition duration-200 ease-out focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus"
+                  >
+                    Profil LinkedIn
+                  </a>
+                </dd>
+              </div>
+            </dl>
+            <div className="mt-6">{renderCTA({ label: 'Voir les projets', href: '#projects' })}</div>
+          </div>
         </div>
-        <div className="rounded-2xl border border-border bg-surface-raised p-6">
-          <dl className="space-y-4 text-sm">
-            <div>
-              <dt className="text-xs font-mono uppercase tracking-[0.25em] text-text-muted">GitHub</dt>
-              <dd>
-                <a href={links.github} target="_blank" rel="noreferrer" className="text-text hover:text-accent transition duration-200 ease-out focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus">
-                  Profil GitHub
-                </a>
-              </dd>
-            </div>
-            <div>
-              <dt className="text-xs font-mono uppercase tracking-[0.25em] text-text-muted">LinkedIn</dt>
-              <dd>
-                <a href={links.linkedin} target="_blank" rel="noreferrer" className="text-text hover:text-accent transition duration-200 ease-out focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus">
-                  Profil LinkedIn
-                </a>
-              </dd>
-            </div>
-          </dl>
-          <div className="mt-6">{renderCTA({ label: 'Voir les projets', href: '#projects' })}</div>
-        </div>
+        <ContactForm accessKey={formAccessKey} />
       </div>
     </section>
   );

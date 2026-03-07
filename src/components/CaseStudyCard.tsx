@@ -26,7 +26,21 @@ export function CaseStudyCard({ caseStudy }: CaseStudyCardProps) {
           <p className="mt-1 text-sm text-text">{caseStudy.stack.join(' / ')}</p>
         </div>
 
-        <Field label="Ce que le projet demontre" value={caseStudy.demonstrates} />
+        {caseStudy.repoUrl && (
+          <div>
+            <p className="text-[11px] font-mono uppercase tracking-[0.3em] text-text-muted">Repo</p>
+            <a
+              href={caseStudy.repoUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="mt-1 inline-flex text-sm text-text underline-offset-2 transition hover:text-accent hover:underline"
+            >
+              {caseStudy.repoUrl}
+            </a>
+          </div>
+        )}
+
+        <Field label="Ce que le projet démontre" value={caseStudy.demonstrates} />
       </div>
     </article>
   );

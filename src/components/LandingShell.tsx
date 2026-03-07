@@ -1,10 +1,11 @@
 "use client";
 
+import { useMemo } from 'react';
 import { HeroSection } from '@/components/HeroSection';
 import { PositioningSection } from '@/components/sections/PositioningSection';
 import { ArchitectureSection } from '@/components/sections/ArchitectureSection';
-import { EducationSection } from '@/components/sections/EducationSection';
 import { ProjectsSection } from '@/components/ProjectsSection';
+import { ProductionSection } from '@/components/ProductionSection';
 import { SkillsSection } from '@/components/SkillsSection';
 import { ExperienceSection } from '@/components/ExperienceSection';
 import { ContactSection } from '@/components/ContactSection';
@@ -13,22 +14,25 @@ import { useActiveSection } from '@/hooks/useActiveSection';
 import {
   architectureNodes,
   caseStudies,
+  complementarySkills,
   contactLinks,
   education,
   experience,
   heroContent,
   navSections,
   positioningContent,
+  productionProjects,
   skillGroups,
 } from '@/data/portfolio';
 
 export function LandingShell() {
-  const activeId = useActiveSection(navSections.map((section) => section.id));
+  const sectionIds = useMemo(() => navSections.map((section) => section.id), []);
+  const [activeId, selectSection] = useActiveSection(sectionIds);
 
   return (
     <div className="mx-auto w-full max-w-[1280px] px-4 py-10 sm:px-6 lg:px-8">
       <div className="flex flex-col gap-8 lg:flex-row">
-        <NavMenu sections={navSections} activeId={activeId} />
+        <NavMenu sections={navSections} activeId={activeId} onSectionSelect={selectSection} />
         <main id="main" tabIndex={-1} className="flex-1 space-y-0">
           <HeroSection
             eyebrow={heroContent.eyebrow}
@@ -39,30 +43,40 @@ export function LandingShell() {
             metrics={[...heroContent.metrics]}
           />
           <PositioningSection
-            eyebrow={positioningContent.eyebrow}
-            title={positioningContent.title}
+            eyebrow=""
+            title={positioningContent.eyebrow}
             intro={positioningContent.intro}
             blocks={[...positioningContent.blocks]}
           />
           <ArchitectureSection
-            eyebrow="Architecture"
-            title="Logique systeme"
-            description="Schema de construction type pour connecter donnees, APIs, backend, stockage et interface utilisateur."
+            eyebrow=""
+            title="Architecture"
+            description="Schéma de construction type pour connecter données, APIs, backend, stockage et interface utilisateur."
             nodes={[...architectureNodes]}
           />
           <ProjectsSection
-            eyebrow="Projets"
-            title="Case studies techniques"
-            description="Chaque projet est presente avec contexte, architecture, stack et point cle demontre."
+            eyebrow=""
+            title="Projets"
+            description="Projets techniques autour des data pipelines, microservices backend et applications web. Chaque projet détaille le contexte, l'architecture, la stack et la démonstration technique."
             projects={caseStudies}
           />
-          <SkillsSection eyebrow="Competences" title="Stack technique" groups={[...skillGroups]} />
-          <ExperienceSection eyebrow="Experience" title="Parcours" experiences={experience} />
-          <EducationSection eyebrow="Formation" title="Parcours de formation" items={education} />
+          <ProductionSection
+            eyebrow=""
+            title="Projets en production"
+            description="Interventions concrètes sur des produits web déployés : performance, SEO, UX/UI et accessibilité."
+            projects={productionProjects}
+          />
+          <SkillsSection
+            eyebrow=""
+            title="Compétences"
+            groups={[...skillGroups]}
+            complementary={complementarySkills}
+          />
+          <ExperienceSection eyebrow="" title="Parcours" experiences={experience} education={education} />
           <ContactSection
-            eyebrow="Contact"
-            title="Parlons de votre besoin"
-            description="Ouvert aux opportunites en developpement fullstack, data engineering et projets IA appliques."
+            eyebrow=""
+            title="Contact"
+            description="Ouvert aux opportunités en développement full stack, data engineering et projets IA appliqués."
             links={contactLinks}
           />
         </main>

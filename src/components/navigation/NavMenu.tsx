@@ -9,9 +9,10 @@ export type NavSection = { id: string; label: string; href: string; hint?: strin
 type NavMenuProps = {
   sections: readonly NavSection[];
   activeId?: string | null;
+  onSectionSelect?: (sectionId: string) => void;
 };
 
-export function NavMenu({ sections, activeId = null }: NavMenuProps) {
+export function NavMenu({ sections, activeId = null, onSectionSelect }: NavMenuProps) {
   const [isOverlayOpen, setOverlayOpen] = useState(false);
   const closeButtonRef = useRef<HTMLButtonElement | null>(null);
   const triggerRef = useRef<HTMLButtonElement | null>(null);
@@ -19,6 +20,10 @@ export function NavMenu({ sections, activeId = null }: NavMenuProps) {
   const renderItems = (onNavigate?: () => void) =>
     sections.map((section) => {
       const isActive = section.id === activeId;
+      const handleClick = () => {
+        onSectionSelect?.(section.id);
+        onNavigate?.();
+      };
       return (
         <li key={section.id}>
           <Link
@@ -27,7 +32,7 @@ export function NavMenu({ sections, activeId = null }: NavMenuProps) {
             className={`relative flex items-center justify-between rounded-pill px-4 py-2 text-sm transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus ${
               isActive ? 'text-accent' : 'text-text-muted hover:text-text'
             }`}
-            onClick={onNavigate}
+            onClick={handleClick}
           >
             <span>{section.label}</span>
             {section.hint && <span className="text-[10px] uppercase tracking-[0.3em] text-text-muted/60">{section.hint}</span>}
@@ -81,7 +86,7 @@ export function NavMenu({ sections, activeId = null }: NavMenuProps) {
     <>
       <nav
         aria-label="Navigation principale"
-        className="hidden h-fit w-[256px] flex-shrink-0 flex-col rounded-3xl border border-border bg-surface p-4 text-text shadow-soft lg:flex"
+        className="hidden h-fit w-[256px] flex-shrink-0 flex-col rounded-3xl border border-border bg-surface p-4 text-text shadow-soft lg:flex lg:sticky lg:top-6 lg:self-start"
       >
         <ul className="flex flex-col gap-2">{renderItems()}</ul>
       </nav>

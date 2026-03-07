@@ -1,7 +1,7 @@
 import { ElementType } from 'react';
 
 type SectionHeaderProps = {
-  eyebrow: string;
+  eyebrow?: string;
   title: string;
   description?: string;
   headingLevel?: 'h1' | 'h2' | 'h3';
@@ -22,10 +22,10 @@ export function SectionHeader({
   const HeadingTag = headingLevel.toLowerCase() as ElementType;
   return (
     <header className={`mb-8 ${className}`}>
-      <p className="text-xs font-mono uppercase tracking-[0.25em] text-text-muted">{eyebrow}</p>
+      {eyebrow && <p className="text-xs font-mono uppercase tracking-[0.25em] text-text-muted">{eyebrow}</p>}
       <HeadingTag
         id={headingId}
-        className={`mt-3 font-display text-3xl leading-tight text-text ${titleClassName}`.trim()}
+        className={`${eyebrow ? 'mt-3 ' : ''}font-display text-3xl leading-tight text-text ${titleClassName}`.trim()}
       >
         {title}
       </HeadingTag>
