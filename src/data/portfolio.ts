@@ -159,10 +159,10 @@ export const skillGroups = [
 ] as const;
 
 export const complementarySkills = {
-  frontend: ['HTML', 'CSS', 'JavaScript', 'Tailwind'],
+  frontend: ['HTML', 'CSS', 'JavaScript'],
   backend: ['PHP', 'Express.js'],
-  databases: ['MySQL', 'MongoDB', 'MariaDB'],
-  tools: ['Git', 'Docker', 'Linux'],
+  databases: ['MySQL'],
+  tools: ['Git', 'Linux'],
 } as const;
 
 export type ProductionProject = {
