@@ -177,7 +177,7 @@ export const productionProjects: ProductionProject[] = [
   {
     title: 'Ciseauxdor',
     description: 'Maintenance et évolution d\'un site web en production.',
-    work: ['Optimisation SEO', 'Amélioration des performances', 'Nouvelles fonctionnalités'],
+    work: ['Optimisation SEO', 'Amélioration des performances'],
     url: 'https://ciseauxdor.ovh/',
     repoStatus: 'Repository privé (non public)',
   },
