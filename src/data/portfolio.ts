@@ -182,16 +182,15 @@ export const productionProjects: ProductionProject[] = [
     repoStatus: 'Repository privé (non public)',
   },
   {
-    title: 'Chellois-es 2026',
-    description: 'Refonte et maintenance d\'un site web sous Next.js.',
+    title: 'Chellois·es 2026 (Archive)',
+    description: 'Refonte complète, animations & optimisation.',
     work: [
-      'Développement React / Next.js',
-      'Intégration Tailwind',
-      'Optimisation UX/UI',
-      'Accessibilité',
+      'Next.js / React / Tailwind',
+      'UX/UI / Accessibilité',
+      'Actions de déploiement CI/CD',
     ],
-    url: 'https://chellois-es2026.fr/',
-    repoStatus: 'Repository privé (non public)',
+    url: 'https://Hicham77500.github.io/Chellois_es/',
+    repoStatus: 'Projet vitrine (anonymisé)',
   },
 ];
 
