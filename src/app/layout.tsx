@@ -7,7 +7,7 @@ const display = Space_Grotesk({ subsets: ['latin'], variable: '--font-display' }
 const body = IBM_Plex_Sans({ subsets: ['latin'], variable: '--font-body', weight: ['400', '500'] });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://example.com'),
+  metadataBase: new URL('https://hicham77500.github.io/Portfolio'),
   title: 'Hicham - Fullstack Developer (Data & Automation)',
   description:
     'Développeur fullstack spécialisé en React, Next.js, Node.js et Python. Expérience en data pipelines, microservices et automatisation.',
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     title: 'Hicham - Fullstack Developer (Data & Automation)',
     description:
       'Développement d\'applications web, pipelines de données et systèmes backend scalables.',
-    url: 'https://example.com',
+    url: 'https://hicham77500.github.io/Portfolio',
     type: 'website',
   },
   twitter: {

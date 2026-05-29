@@ -9,7 +9,10 @@ const nextConfig = {
   images: {
     unoptimized: true,
     formats: ['image/avif', 'image/webp'],
-    domains: ['images.ctfassets.net', 'res.cloudinary.com'],
+    remotePatterns: [
+      { protocol: 'https', hostname: 'images.ctfassets.net' },
+      { protocol: 'https', hostname: 'res.cloudinary.com' },
+    ],
   },
 };
 

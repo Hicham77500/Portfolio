@@ -1,9 +1,8 @@
 "use client";
 
-import { useMemo } from 'react';
 import { HeroSection } from '@/components/HeroSection';
-import { PositioningSection } from '@/components/sections/PositioningSection';
-import { ArchitectureSection } from '@/components/sections/ArchitectureSection';
+import { PositioningSection } from '@/components/PositioningSection';
+import { ArchitectureSection } from '@/components/ArchitectureSection';
 import { ProjectsSection } from '@/components/ProjectsSection';
 import { ProductionSection } from '@/components/ProductionSection';
 import { SkillsSection } from '@/components/SkillsSection';
@@ -25,8 +24,9 @@ import {
   skillGroups,
 } from '@/data/portfolio';
 
+const sectionIds = navSections.map((section) => section.id);
+
 export function LandingShell() {
-  const sectionIds = useMemo(() => navSections.map((section) => section.id), []);
   const [activeId, selectSection] = useActiveSection(sectionIds);
 
   return (
@@ -62,8 +62,8 @@ export function LandingShell() {
           />
           <ProductionSection
             eyebrow=""
-            title="Projets en production"
-            description="Interventions concrètes sur des produits web déployés : performance, SEO, UX/UI et accessibilité."
+            title="Projets réalisés"
+            description="Projets web anciennement déployés."
             projects={productionProjects}
           />
           <SkillsSection
