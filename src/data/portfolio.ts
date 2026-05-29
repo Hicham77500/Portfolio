@@ -33,7 +33,7 @@ export const navSections = [
 ] as const;
 
 export const heroContent = {
-  eyebrow: 'Développeur full stack - React, Node.js, Python',
+  eyebrow: 'Développeur fullstack — React, Node.js, Python',
   title: 'Hicham - Fullstack Developer (Data & Automation)',
   description:
     'React / Next.js / Node.js / Python / Data pipelines / Microservices. Développement d\'applications web, de pipelines de données et de systèmes backend scalables.',
@@ -62,7 +62,7 @@ export const positioningContent = {
   eyebrow: 'Positionnement',
   title: 'Approche technique',
   intro:
-    'Profil full stack avec une spécialisation data et automatisation. Objectif : concevoir des architectures lisibles reliant ingestion de données, backend et interface utilisateur.',
+    'Profil fullstack avec une spécialisation data et automatisation. Objectif : concevoir des architectures lisibles reliant ingestion de données, backend et interface utilisateur.',
   blocks: [
     {
       label: 'API',

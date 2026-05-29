@@ -134,7 +134,7 @@ export function ContactForm({ accessKey }: ContactFormProps) {
       </div>
       <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
         <p className={`text-xs ${statusStyles[status]}`} aria-live="polite">
-          {statusMessage ?? "Réponse sous 24h. Je suis aussi dispo sur LinkedIn."}
+          {statusMessage ?? "Réponse sous 24h. Je suis aussi disponible sur LinkedIn."}
         </p>
         <button
           type="submit"

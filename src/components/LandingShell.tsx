@@ -76,7 +76,7 @@ export function LandingShell() {
           <ContactSection
             eyebrow=""
             title="Contact"
-            description="Ouvert aux opportunités en développement full stack, data engineering et projets IA appliqués."
+            description="Ouvert aux opportunités en développement fullstack, data engineering et projets IA appliqués."
             links={contactLinks}
           />
         </main>
