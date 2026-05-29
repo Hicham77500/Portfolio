@@ -28,7 +28,7 @@ export function ProductionSection({
         description={description}
         headingId={resolvedHeadingId}
       />
-      <div className="content grid gap-6 md:grid-cols-2">
+      <div className="content grid gap-6">
         {projects.map((project) => (
           <article key={project.title} className="rounded-2xl border border-border bg-surface-raised p-6">
             <h3 className="text-xl font-semibold text-text">{project.title}</h3>
