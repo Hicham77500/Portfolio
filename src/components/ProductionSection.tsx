@@ -35,23 +35,9 @@ export function ProductionSection({
             key={project.title}
             className="overflow-hidden rounded-2xl border border-border bg-surface-raised"
           >
+            {/* Mobile: texte puis visuel en bas · Desktop: texte gauche, visuel droite */}
             <div className="flex flex-col xl:flex-row xl:items-stretch">
-              {project.imageSrc && (
-                <div className="w-full shrink-0 border-b border-border bg-base-800 p-4 sm:p-5 xl:w-[min(44%,28rem)] xl:border-b-0 xl:border-r">
-                  {/* eslint-disable-next-line @next/next/no-img-element -- static GH Pages needs explicit basePath */}
-                  <img
-                    src={withBasePath(project.imageSrc)}
-                    alt={`Aperçu ${project.title}`}
-                    width={1024}
-                    height={317}
-                    className="mx-auto h-auto w-full max-w-lg rounded-lg object-contain xl:max-w-none"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                </div>
-              )}
-
-              <div className="flex min-w-0 flex-1 flex-col p-5 sm:p-6 lg:p-8">
+              <div className="flex min-w-0 flex-1 flex-col justify-center p-5 sm:p-6 lg:p-8">
                 <div className="min-w-0">
                   <div className="flex flex-wrap items-center gap-2">
                     <h3 className="text-xl font-semibold text-text sm:text-2xl">{project.title}</h3>
@@ -92,6 +78,21 @@ export function ProductionSection({
                   {project.ctaLabel ?? project.url}
                 </a>
               </div>
+
+              {project.imageSrc && (
+                <div className="w-full shrink-0 border-t border-border bg-base-800 p-4 sm:p-5 xl:w-[min(52%,34rem)] xl:border-l xl:border-t-0 xl:p-6">
+                  {/* eslint-disable-next-line @next/next/no-img-element -- static GH Pages needs explicit basePath */}
+                  <img
+                    src={withBasePath(project.imageSrc)}
+                    alt={`Aperçu ${project.title}`}
+                    width={950}
+                    height={1024}
+                    className="mx-auto h-auto w-full max-w-md rounded-lg object-contain xl:max-h-[min(85vh,42rem)] xl:max-w-none"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+              )}
             </div>
           </article>
         ))}
