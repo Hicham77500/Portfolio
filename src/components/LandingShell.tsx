@@ -49,13 +49,13 @@ export function LandingShell() {
           <ArchitectureSection
             eyebrow=""
             title="Architecture"
-            description="Schéma de construction type pour connecter données, APIs, backend, stockage et interface utilisateur."
+            description="Chaîne type d’un produit connecté : client, authentification, cloud, données et export vers l’IA."
             nodes={[...architectureNodes]}
           />
           <ProductionSection
             eyebrow=""
             title="Projets réalisés"
-            description="Produits publiés — applications et sites en production."
+            description="Produits publiés — applications en production."
             projects={productionProjects}
           />
           <SkillsSection
@@ -68,7 +68,7 @@ export function LandingShell() {
           <ContactSection
             eyebrow=""
             title="Contact"
-            description="Ouvert aux opportunités en développement fullstack, data engineering et projets IA appliqués."
+            description="Ouvert aux opportunités en développement mobile iOS, fullstack et produits data / IA appliqués."
             links={contactLinks}
           />
         </main>

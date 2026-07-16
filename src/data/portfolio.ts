@@ -23,78 +23,88 @@ export const navSections = [
 ] as const;
 
 export const heroContent = {
-  eyebrow: 'Développeur fullstack — React, Node.js, Python',
-  title: 'Hicham - Fullstack Developer (Data & Automation)',
+  eyebrow: 'Développeur fullstack & mobile — produits publiés',
+  title: 'Hicham — Fullstack & Mobile Developer',
   description:
-    'React / Next.js / Node.js / Python / Data pipelines / Microservices. Développement d\'applications web, de pipelines de données et de systèmes backend scalables.',
+    'Je conçois des applications de bout en bout : iOS natif, web et cloud. Reply Fitness, mon app de suivi fitness avec export IA, est disponible sur l’App Store.',
   primaryAction: { label: 'Voir les projets', href: '#production' },
   secondaryAction: { label: 'Me contacter', href: '#contact' },
   metrics: [
     {
-      label: 'Frontend',
+      label: 'Mobile',
+      value: 'SwiftUI / Swift 6 / iOS',
+      detail: 'Apps natives, SwiftData, publication App Store.',
+    },
+    {
+      label: 'Web',
       value: 'React / Next.js / TypeScript',
-      detail: 'Interfaces maintenables, composants réutilisables et intégration Tailwind.',
+      detail: 'Interfaces maintenables et expériences produit soignées.',
     },
     {
-      label: 'Backend',
-      value: 'Node.js / Microservices / Docker',
-      detail: 'APIs TypeScript structurées et architecture orientée services.',
-    },
-    {
-      label: 'Data',
-      value: 'Python / Spark / Airflow',
-      detail: 'Pipelines de données, ingestion et visualisation de KPIs.',
+      label: 'Cloud & Data',
+      value: 'Firebase / Node.js / Python',
+      detail: 'Auth, sync cloud, APIs et pipelines de données.',
     },
   ],
 } as const;
 
 export const positioningContent = {
   eyebrow: 'Positionnement',
-  title: 'Approche technique',
+  title: 'Approche produit',
   intro:
-    'Profil fullstack avec une spécialisation data et automatisation. Objectif : concevoir des architectures lisibles reliant ingestion de données, backend et interface utilisateur.',
+    'Profil orienté produit : livrer des applications utilisables, de l’interface au cloud. Spécialisation mobile iOS, avec un socle fullstack web et data.',
   blocks: [
     {
-      label: 'API',
-      description: 'Intégration de sources externes et exposition d\'APIs propres pour les applications frontend et les flux data.',
+      label: 'Produit',
+      description:
+        'De l’idée à la mise en production : parcours utilisateur, rétention, conformité (RGPD) et publication store.',
     },
     {
-      label: 'Backend',
-      description: 'Services Node.js / TypeScript structurés, logique métier claire et conteneurisation Docker.',
+      label: 'Mobile',
+      description:
+        'Applications iOS en SwiftUI / Swift 6, persistance locale (SwiftData) et sync cloud pour une expérience fluide hors ligne.',
     },
     {
-      label: 'Data pipelines',
-      description: 'Flux Python / Spark / HDFS pour ingestion, transformation et restitution orientée usages.',
+      label: 'Cloud',
+      description:
+        'Firebase Auth, Firestore et backends structurés pour authentifier, synchroniser et sécuriser les données utilisateur.',
     },
     {
-      label: 'UI',
-      description: 'Interfaces React / Next.js lisibles, composants réutilisables et cohérence Tailwind.',
+      label: 'Web & Data',
+      description:
+        'Interfaces React / Next.js et pipelines Python pour exposer, analyser et automatiser les flux de données.',
     },
   ],
 } as const;
 
-export const architectureNodes = ['Données', 'API ingestion', 'Backend', 'Stockage', 'Interface'] as const;
+export const architectureNodes = [
+  'Client (iOS / Web)',
+  'Auth',
+  'Cloud / API',
+  'Données',
+  'Export / IA',
+] as const;
 
 export const skillGroups = [
   {
-    title: 'Frontend',
+    title: 'Mobile',
+    stack: ['SwiftUI', 'Swift 6', 'SwiftData', 'iOS / Xcode'],
+  },
+  {
+    title: 'Web',
     stack: ['React', 'Next.js', 'TypeScript', 'Tailwind'],
   },
   {
-    title: 'Backend',
-    stack: ['Node.js', 'Python', 'Microservices', 'Docker'],
-  },
-  {
-    title: 'Data & Storage',
-    stack: ['Spark', 'Airflow', 'MongoDB', 'MariaDB / MySQL'],
+    title: 'Cloud & Backend',
+    stack: ['Firebase', 'Node.js', 'Python', 'Docker'],
   },
 ] as const;
 
 export const complementarySkills = {
-  frontend: ['HTML', 'CSS', 'JavaScript'],
-  backend: ['PHP', 'Express.js'],
-  databases: ['MySQL'],
-  tools: ['Git', 'Linux'],
+  frontend: ['HTML', 'CSS', 'JavaScript', 'Angular'],
+  backend: ['PHP', 'Express.js', 'Microservices'],
+  databases: ['Firestore', 'MongoDB', 'MariaDB / MySQL'],
+  tools: ['Git', 'Linux', 'Spark', 'Airflow', 'Power BI'],
 } as const;
 
 export type ProductionProject = {
@@ -129,6 +139,7 @@ export const productionProjects: ProductionProject[] = [
     imageSrc: '/projects/reply-fitness/promo.png',
   },
 ];
+
 export const experience: ExperienceItem[] = [
   {
     org: 'SN SociaNova',
@@ -136,6 +147,14 @@ export const experience: ExperienceItem[] = [
     period: '2025 -> aujourd\'hui',
     summary: 'Maintenance et évolution d\'un logiciel médico-social.',
     stack: ['PHP', 'Angular', 'JavaScript'],
+  },
+  {
+    org: 'Indépendant',
+    role: 'Développeur produit — Reply Fitness',
+    period: '2025 -> 2026',
+    summary:
+      'Conception, développement et publication d’une app iOS de suivi fitness avec sync cloud et export de contexte pour IA externe.',
+    stack: ['SwiftUI', 'Firebase', 'SwiftData'],
   },
   {
     org: 'Medissimo',

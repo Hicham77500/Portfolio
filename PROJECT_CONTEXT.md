@@ -1,7 +1,7 @@
 # Portfolio — Project Context
 
-**Identité :** portfolio vitrine de **Hicham Guendouz** — développeur fullstack (React, Node.js, Python, data & automation).  
-**Stack :** Next.js 16 (App Router) · React 19 · TypeScript · Tailwind · Framer Motion · export statique GitHub Pages.  
+**Identité :** portfolio vitrine de **Hicham Guendouz** — développeur fullstack & mobile (iOS, React, cloud). Produit phare : Reply Fitness (App Store).  
+**Stack site :** Next.js 16 (App Router) · React 19 · TypeScript · Tailwind · Framer Motion · export statique GitHub Pages.  
 **URL prod :** `https://hicham77500.github.io/Portfolio`  
 **Dernière mise à jour :** 2026-07-16
 

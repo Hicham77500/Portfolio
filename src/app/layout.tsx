@@ -8,33 +8,33 @@ const body = IBM_Plex_Sans({ subsets: ['latin'], variable: '--font-body', weight
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://hicham77500.github.io/Portfolio'),
-  title: 'Hicham - Fullstack Developer (Data & Automation)',
+  title: 'Hicham — Fullstack & Mobile Developer',
   description:
-    'Développeur fullstack spécialisé en React, Next.js, Node.js et Python. Expérience en data pipelines, microservices et automatisation.',
+    'Développeur fullstack et mobile. Créateur de Reply Fitness (App Store). SwiftUI, React, Next.js, Firebase, Node.js et Python.',
   keywords: [
     'développeur fullstack',
+    'développeur iOS',
+    'SwiftUI',
+    'Reply Fitness',
     'react developer',
     'next.js developer',
+    'firebase',
     'node.js backend',
-    'data pipeline',
     'python data',
-    'apache spark',
-    'microservices architecture',
-    'docker backend',
   ],
   openGraph: {
-    title: 'Hicham - Fullstack Developer (Data & Automation)',
+    title: 'Hicham — Fullstack & Mobile Developer',
     description:
-      'Développement d\'applications web, pipelines de données et systèmes backend scalables.',
+      'Applications iOS et web de bout en bout. Reply Fitness disponible sur l’App Store.',
     url: 'https://hicham77500.github.io/Portfolio',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
     creator: '@hicham_dev',
-    title: 'Hicham - Fullstack Developer (Data & Automation)',
+    title: 'Hicham — Fullstack & Mobile Developer',
     description:
-      'React, Next.js, Node.js, Python, data pipelines et microservices pour des applications web robustes.',
+      'SwiftUI, React, Next.js, Firebase — produits publiés, dont Reply Fitness sur l’App Store.',
   },
 };
 
