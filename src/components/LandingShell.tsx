@@ -3,7 +3,6 @@
 import { HeroSection } from '@/components/HeroSection';
 import { PositioningSection } from '@/components/PositioningSection';
 import { ArchitectureSection } from '@/components/ArchitectureSection';
-import { ProjectsSection } from '@/components/ProjectsSection';
 import { ProductionSection } from '@/components/ProductionSection';
 import { SkillsSection } from '@/components/SkillsSection';
 import { ExperienceSection } from '@/components/ExperienceSection';
@@ -12,7 +11,6 @@ import { NavMenu } from '@/components/navigation/NavMenu';
 import { useActiveSection } from '@/hooks/useActiveSection';
 import {
   architectureNodes,
-  caseStudies,
   complementarySkills,
   contactLinks,
   education,
@@ -54,16 +52,10 @@ export function LandingShell() {
             description="Schéma de construction type pour connecter données, APIs, backend, stockage et interface utilisateur."
             nodes={[...architectureNodes]}
           />
-          <ProjectsSection
-            eyebrow=""
-            title="Projets"
-            description="Projets techniques autour des data pipelines, microservices backend et applications web. Chaque projet détaille le contexte, l'architecture, la stack et la démonstration technique."
-            projects={caseStudies}
-          />
           <ProductionSection
             eyebrow=""
             title="Projets réalisés"
-            description="Projets web anciennement déployés."
+            description="Produits publiés — applications et sites en production."
             projects={productionProjects}
           />
           <SkillsSection

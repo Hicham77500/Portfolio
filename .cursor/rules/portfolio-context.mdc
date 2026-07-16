@@ -1,0 +1,15 @@
+---
+description: Portfolio conventions — lire PROJECT_CONTEXT avant toute modification contenu ou structure
+alwaysApply: true
+---
+
+# Portfolio — règles agent
+
+1. Lire `PROJECT_CONTEXT.md` (flags + conventions) avant de changer le contenu ou la structure.
+2. Toute copy / projet / parcours → `src/data/portfolio.ts` uniquement. Pas de textes produit hardcodés dans les composants.
+3. Section `#production` = seule section projets (produits publiés). Pas de section `#projects` / case studies.
+4. **Reply Fitness** est le produit App Store live. **Chellois·es** est archivé — ne pas le réintroduire.
+5. Assets produits → `public/projects/<slug>/` (kebab-case).
+6. Garder les IDs `navSections` synchronisés avec les `id` des sections et `useActiveSection`.
+7. Export statique GitHub Pages : pas d’API routes Next ; `images.unoptimized` déjà en place.
+8. Skills iOS / ASO / design mobile → workspace `../AllSkills` si besoin ; skills Reply iOS restent dans `../FitPro/.cursor/skills`.

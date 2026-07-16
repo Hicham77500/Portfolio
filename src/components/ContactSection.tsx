@@ -63,7 +63,7 @@ export function ContactSection({
                 </dd>
               </div>
             </dl>
-            <div className="mt-6">{renderCTA({ label: 'Voir les projets', href: '#projects' })}</div>
+            <div className="mt-6">{renderCTA({ label: 'Voir les projets', href: '#production' })}</div>
           </div>
         </div>
         <ContactForm accessKey={formAccessKey} />

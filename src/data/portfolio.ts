@@ -1,12 +1,3 @@
-export type CaseStudy = {
-  title: string;
-  context: string;
-  architecture: string[];
-  stack: string[];
-  demonstrates: string;
-  repoUrl?: string;
-};
-
 export type ExperienceItem = {
   org: string;
   role: string;
@@ -25,8 +16,7 @@ export const navSections = [
   { id: 'hero', label: 'Intro', href: '#hero' },
   { id: 'positioning', label: 'Positionnement', href: '#positioning' },
   { id: 'architecture', label: 'Architecture', href: '#architecture' },
-  { id: 'projects', label: 'Projets', href: '#projects' },
-  { id: 'production', label: 'Production', href: '#production' },
+  { id: 'production', label: 'Projets réalisés', href: '#production' },
   { id: 'skills', label: 'Compétences', href: '#skills' },
   { id: 'experience', label: 'Parcours', href: '#experience' },
   { id: 'contact', label: 'Contact', href: '#contact' },
@@ -37,7 +27,7 @@ export const heroContent = {
   title: 'Hicham - Fullstack Developer (Data & Automation)',
   description:
     'React / Next.js / Node.js / Python / Data pipelines / Microservices. Développement d\'applications web, de pipelines de données et de systèmes backend scalables.',
-  primaryAction: { label: 'Voir les projets', href: '#projects' },
+  primaryAction: { label: 'Voir les projets', href: '#production' },
   secondaryAction: { label: 'Me contacter', href: '#contact' },
   metrics: [
     {
@@ -85,64 +75,6 @@ export const positioningContent = {
 
 export const architectureNodes = ['Données', 'API ingestion', 'Backend', 'Stockage', 'Interface'] as const;
 
-export const caseStudies: CaseStudy[] = [
-  {
-    title: 'Big Data Pipeline - Binance Market Data',
-    context: 'Pipeline de traitement de données crypto conçu pour analyser les marchés en quasi temps réel.',
-    architecture: [
-      'Ingestion des données via l\'API Binance',
-      'Stockage distribué sur HDFS',
-      'Traitements Apache Spark (agrégats prix / volume)',
-      'Stockage des résultats dans MongoDB',
-      'Visualisation des KPIs dans Power BI',
-    ],
-    stack: ['Python', 'Apache Spark', 'HDFS', 'MongoDB', 'Power BI'],
-    demonstrates: 'Conception d\'un pipeline data complet : ingestion, traitement et restitution de KPIs.',
-    repoUrl: 'https://github.com/Hicham77500/binance',
-  },
-  {
-    title: 'Delivery Services - Microservices Backend',
-    context: 'Architecture backend d\'une plateforme de livraison construite en microservices.',
-    architecture: [
-      'Domain Driven Design (DDD)',
-      'Test Driven Development (TDD)',
-      'Architecture orientée services',
-      'Cluster MariaDB Galera pour la haute disponibilité',
-      'Conteneurisation Docker',
-      'API Node.js / TypeScript',
-    ],
-    stack: ['Node.js', 'TypeScript', 'MariaDB Galera', 'Docker'],
-    demonstrates: 'Conception d\'un backend microservices structuré, testé et conteneurisé.',
-    repoUrl: 'https://github.com/Hicham77500/delivery-services',
-  },
-  {
-    title: 'Dashboard NASA',
-    context: 'Dashboard de visualisation de données spatiales via l\'API NASA.',
-    architecture: [
-      'Collecte des données via NASA API',
-      'Backend Flask pour normaliser les flux',
-      'Stockage dans MongoDB',
-      'Interface de visualisation des données',
-    ],
-    stack: ['Python', 'Flask', 'MongoDB', 'NASA API'],
-    demonstrates: 'Intégration API externe et transformation des données en interface exploitable.',
-    repoUrl: 'https://github.com/Hicham77500/Dashboard_Nasa',
-  },
-  {
-    title: 'BerserkerCut',
-    context: 'Application mobile construite avec React Native et Expo.',
-    architecture: [
-      'Client mobile React Native (Expo)',
-      'Backend Node.js pour la logique applicative',
-      'Stockage des données avec MongoDB',
-      'Synchronisation app et API',
-    ],
-    stack: ['React Native', 'Expo', 'Node.js', 'MongoDB'],
-    demonstrates: 'Développement d\'une application mobile connectée à un backend.',
-    repoUrl: 'https://github.com/Hicham77500/BerserkerCut',
-  },
-];
-
 export const skillGroups = [
   {
     title: 'Frontend',
@@ -170,23 +102,33 @@ export type ProductionProject = {
   description: string;
   work: string[];
   url: string;
+  /** Store / statut public (ex. App Store). */
+  badge?: string;
+  tagline?: string;
+  iconSrc?: string;
+  imageSrc?: string;
+  ctaLabel?: string;
   repoStatus?: string;
 };
 
 export const productionProjects: ProductionProject[] = [
   {
-    title: 'Chellois·es 2026 (Archive)',
-    description: 'Refonte complète, animations & optimisation.',
+    title: 'Reply Fitness',
+    tagline: 'Votre contexte fitness, enfin réuni au même endroit',
+    description:
+      'Carnet de suivi intelligent iOS : nutrition, entraînement, progression et export de contexte structuré vers l’IA de votre choix. Disponible gratuitement sur l’App Store.',
     work: [
-      'Next.js / React / Tailwind',
-      'UX/UI / Accessibilité',
-      'Actions de déploiement CI/CD',
+      'SwiftUI / Swift 6 / SwiftData',
+      'Firebase Auth + Cloud Firestore',
+      'Export IA (Markdown / JSON) · RGPD',
+      'Publié App Store (V1.0)',
     ],
-    url: 'https://Hicham77500.github.io/Chellois_es/',
-    repoStatus: 'Projet vitrine (anonymisé)',
+    url: 'https://apps.apple.com/fr/app/reply-fitness/id6785667481',
+    badge: 'App Store',
+    ctaLabel: 'Voir sur l’App Store',
+    imageSrc: '/projects/reply-fitness/promo.png',
   },
 ];
-
 export const experience: ExperienceItem[] = [
   {
     org: 'SN SociaNova',
