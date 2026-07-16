@@ -1,10 +1,14 @@
 const isProd = process.env.NODE_ENV === 'production';
+const basePath = isProd ? '/Portfolio' : '';
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: 'export',
-  basePath: isProd ? '/Portfolio' : undefined,
-  assetPrefix: isProd ? '/Portfolio/' : undefined,
+  basePath: basePath || undefined,
+  assetPrefix: basePath ? `${basePath}/` : undefined,
+  env: {
+    NEXT_PUBLIC_BASE_PATH: basePath,
+  },
   reactStrictMode: true,
   images: {
     unoptimized: true,

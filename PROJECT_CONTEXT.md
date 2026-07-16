@@ -13,6 +13,7 @@
 |------|--------|
 | **Source de contenu** | Tout texte marketing / projets / parcours vit dans `src/data/portfolio.ts`. Les composants ne hardcodent pas de copy produit. |
 | **Export statique** | `next.config.js` → `output: 'export'`. Pas d’API routes ni de `next/image` optimization serveur. `basePath` `/Portfolio` en prod uniquement. |
+| **Assets publics** | Chemins `/projects/...` via `withBasePath()` (`src/lib/paths.ts`) — obligatoire pour GitHub Pages. |
 | **Section Production** | « Projets réalisés » = seule section projets (`#production`). Pas de section études de cas GitHub. |
 | **Reply Fitness** | Produit iOS live sur App Store. Assets : `public/projects/reply-fitness/`. Repo code : workspace `../FitPro` (hors ce dépôt). |
 | **Chellois·es** | Archivé — **ne plus réintroduire** dans `productionProjects`. |

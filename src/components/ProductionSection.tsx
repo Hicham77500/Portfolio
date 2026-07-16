@@ -1,6 +1,6 @@
-import Image from 'next/image';
 import { SectionHeader } from '@/components/SectionHeader';
 import type { ProductionProject } from '@/data/portfolio';
+import { withBasePath } from '@/lib/paths';
 
 type ProductionSectionProps = {
   id?: string;
@@ -35,8 +35,23 @@ export function ProductionSection({
             key={project.title}
             className="overflow-hidden rounded-2xl border border-border bg-surface-raised"
           >
-            <div className="grid gap-0 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)]">
-              <div className="flex flex-col p-6 sm:p-8">
+            <div className="flex flex-col xl:flex-row xl:items-stretch">
+              {project.imageSrc && (
+                <div className="w-full shrink-0 border-b border-border bg-base-800 p-4 sm:p-5 xl:w-[min(44%,28rem)] xl:border-b-0 xl:border-r">
+                  {/* eslint-disable-next-line @next/next/no-img-element -- static GH Pages needs explicit basePath */}
+                  <img
+                    src={withBasePath(project.imageSrc)}
+                    alt={`Aperçu ${project.title}`}
+                    width={1024}
+                    height={317}
+                    className="mx-auto h-auto w-full max-w-lg rounded-lg object-contain xl:max-w-none"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+              )}
+
+              <div className="flex min-w-0 flex-1 flex-col p-5 sm:p-6 lg:p-8">
                 <div className="min-w-0">
                   <div className="flex flex-wrap items-center gap-2">
                     <h3 className="text-xl font-semibold text-text sm:text-2xl">{project.title}</h3>
@@ -51,9 +66,9 @@ export function ProductionSection({
                   )}
                 </div>
 
-                <p className="mt-5 text-sm leading-relaxed text-text-muted">{project.description}</p>
+                <p className="mt-4 text-sm leading-relaxed text-text-muted sm:mt-5">{project.description}</p>
 
-                <div className="mt-5">
+                <div className="mt-4 sm:mt-5">
                   <p className="text-[11px] font-mono uppercase tracking-[0.3em] text-text-muted">
                     Travaux réalisés
                   </p>
@@ -72,25 +87,11 @@ export function ProductionSection({
                   href={project.url}
                   target="_blank"
                   rel="noreferrer"
-                  className="mt-6 inline-flex w-fit items-center gap-2 rounded-lg bg-accent px-4 py-2.5 text-sm font-medium text-base-900 transition hover:bg-accent-soft"
+                  className="mt-5 inline-flex w-fit items-center gap-2 rounded-lg bg-accent px-4 py-2.5 text-sm font-medium text-base-900 transition hover:bg-accent-soft sm:mt-6"
                 >
                   {project.ctaLabel ?? project.url}
                 </a>
               </div>
-
-              {project.imageSrc && (
-                <div className="relative flex items-center border-t border-border bg-base-800 p-4 sm:p-6 lg:border-l lg:border-t-0">
-                  <Image
-                    src={project.imageSrc}
-                    alt={`Aperçu ${project.title}`}
-                    width={1024}
-                    height={317}
-                    className="h-auto w-full rounded-lg"
-                    sizes="(max-width: 1024px) 100vw, 40vw"
-                    priority={false}
-                  />
-                </div>
-              )}
             </div>
           </article>
         ))}
