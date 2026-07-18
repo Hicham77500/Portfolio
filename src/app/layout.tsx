@@ -6,6 +6,8 @@ import './globals.css';
 const display = Space_Grotesk({ subsets: ['latin'], variable: '--font-display' });
 const body = IBM_Plex_Sans({ subsets: ['latin'], variable: '--font-body', weight: ['400', '500'] });
 
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? '';
+
 export const metadata: Metadata = {
   metadataBase: new URL('https://hicham77500.github.io/Portfolio'),
   title: 'Hicham — Fullstack & Mobile Developer',
@@ -35,6 +37,15 @@ export const metadata: Metadata = {
     title: 'Hicham — Fullstack & Mobile Developer',
     description:
       'SwiftUI, React, Next.js, Firebase — produits publiés, dont Reply Fitness sur l’App Store.',
+  },
+  icons: {
+    icon: [
+      { url: `${basePath}/favicon.ico`, sizes: 'any' },
+      { url: `${basePath}/favicon.svg`, type: 'image/svg+xml' },
+      { url: `${basePath}/favicon-32x32.png`, sizes: '32x32', type: 'image/png' },
+      { url: `${basePath}/favicon-16x16.png`, sizes: '16x16', type: 'image/png' },
+    ],
+    apple: [{ url: `${basePath}/apple-touch-icon.png`, sizes: '180x180', type: 'image/png' }],
   },
 };
 
