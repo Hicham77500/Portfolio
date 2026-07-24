@@ -175,7 +175,7 @@ export const experience: ExperienceItem[] = [
   {
     org: 'Indépendant',
     role: 'Développeur produit — Reply Fitness',
-    period: '2025 -> 2026',
+    period: '2026',
     summary:
       'Conception, développement et publication d’une app iOS de suivi fitness avec sync cloud et export de contexte pour IA externe.',
     stack: ['SwiftUI', 'Firebase', 'SwiftData'],
