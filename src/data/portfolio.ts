@@ -121,6 +121,12 @@ export type ProductionProject = {
   repoStatus?: string;
 };
 
+export const productionContent = {
+  title: 'Projets réalisés',
+  description:
+    'Produits publiés et projets open source — applications en production ou disponibles sur GitHub.',
+} as const;
+
 export const productionProjects: ProductionProject[] = [
   {
     title: 'Reply Fitness',
@@ -137,6 +143,24 @@ export const productionProjects: ProductionProject[] = [
     badge: 'App Store',
     ctaLabel: 'Voir sur l’App Store',
     imageSrc: '/projects/reply-fitness/promo.png',
+  },
+  {
+    title: 'OSINTGraph',
+    tagline: 'Plateforme desktop d’intelligence relationnelle OSINT',
+    description:
+      'Application desktop d’investigation OSINT inspirée de Maltego : dossiers, carnets, graphe relationnel, provenance des faits et plugins de transforms (Shodan, Sherlock…).',
+    work: [
+      'Electron + React 18 + TypeScript + Cytoscape.js',
+      'FastAPI + Python 3.11 + SQLite + Socket.IO',
+      'Architecture plugins dynamiques & registres d’entités',
+      'Open source sur GitHub',
+    ],
+    url: 'https://github.com/Hicham77500/OSINTGraph',
+    badge: 'Open Source',
+    ctaLabel: 'Voir sur GitHub',
+    imageSrc: '/projects/osintgraph/promo.png',
+    repoStatus:
+      'Pas en production — disponible en open source sur mon profil GitHub.',
   },
 ];
 

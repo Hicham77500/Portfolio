@@ -28,8 +28,9 @@ description: >-
 }
 ```
 
-- Produit App Store / live → `productionProjects` + `badge`.
-- Pas de section études de cas GitHub.
+- Produit App Store / live → `productionProjects` + `badge` (`App Store`, …).
+- Open source hors prod → `productionProjects` + `badge: 'Open Source'` + `repoStatus` + `url` GitHub.
+- Pas de section études de cas GitHub séparée.
 - Ne jamais remettre Chellois·es.
 
 ## Navigation
