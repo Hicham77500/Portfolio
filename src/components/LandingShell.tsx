@@ -18,6 +18,7 @@ import {
   heroContent,
   navSections,
   positioningContent,
+  productionContent,
   productionProjects,
   skillGroups,
 } from '@/data/portfolio';
@@ -54,8 +55,8 @@ export function LandingShell() {
           />
           <ProductionSection
             eyebrow=""
-            title="Projets réalisés"
-            description="Produits publiés — applications en production."
+            title={productionContent.title}
+            description={productionContent.description}
             projects={productionProjects}
           />
           <SkillsSection

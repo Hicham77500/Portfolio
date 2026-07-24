@@ -3,7 +3,7 @@
 **Identité :** portfolio vitrine de **Hicham Guendouz** — développeur fullstack & mobile (iOS, React, cloud). Produit phare : Reply Fitness (App Store).  
 **Stack site :** Next.js 16 (App Router) · React 19 · TypeScript · Tailwind · Framer Motion · export statique GitHub Pages.  
 **URL prod :** `https://hicham77500.github.io/Portfolio`  
-**Dernière mise à jour :** 2026-07-16
+**Dernière mise à jour :** 2026-07-24
 
 ---
 
@@ -14,8 +14,9 @@
 | **Source de contenu** | Tout texte marketing / projets / parcours vit dans `src/data/portfolio.ts`. Les composants ne hardcodent pas de copy produit. |
 | **Export statique** | `next.config.js` → `output: 'export'`. Pas d’API routes ni de `next/image` optimization serveur. `basePath` `/Portfolio` en prod uniquement. |
 | **Assets publics** | Chemins `/projects/...` via `withBasePath()` (`src/lib/paths.ts`) — obligatoire pour GitHub Pages. |
-| **Section Production** | « Projets réalisés » = seule section projets (`#production`). Pas de section études de cas GitHub. |
+| **Section Production** | « Projets réalisés » = seule section projets (`#production`). Inclut produits live **et** open source (via `badge` / `repoStatus`). Pas de section études de cas séparée. |
 | **Reply Fitness** | Produit iOS live sur App Store. Assets : `public/projects/reply-fitness/`. Repo code : workspace `../FitPro` (hors ce dépôt). |
+| **OSINTGraph** | Open source (pas en production). Badge `Open Source`, lien GitHub, `repoStatus` explicite. Assets : `public/projects/osintgraph/`. |
 | **Chellois·es** | Archivé — **ne plus réintroduire** dans `productionProjects`. |
 | **IDs de section** | Ancres = `navSections[].id` (`hero`, `positioning`, `architecture`, `production`, `skills`, `experience`, `contact`). Garder synchro avec `LandingShell` + `useActiveSection`. |
 | **Alias `@/`** | Pointe vers `src/` (`tsconfig.json`). Préférer `@/components/...`, `@/data/portfolio`. |
@@ -34,7 +35,8 @@
 | `heroContent` | Hero (eyebrow, title, CTAs, metrics) |
 | `positioningContent` | Blocs positionnement |
 | `architectureNodes` | Nœuds du schéma architecture |
-| `productionProjects` | Produits publiés — section `#production` |
+| `productionContent` | Titre / description de la section `#production` |
+| `productionProjects` | Produits live + open source — section `#production` |
 | `skillGroups` / `complementarySkills` | Compétences |
 | `experience` / `education` | Parcours |
 | `contactLinks` | GitHub / LinkedIn |
@@ -70,11 +72,12 @@ Slug = kebab-case du produit (`reply-fitness`).
 
 | Champ `ProductionProject` | Sens |
 |---------------------------|------|
-| `badge` | Label store (`App Store`, `Live`, …) |
-| `url` | Lien principal (store ou site) |
+| `badge` | Label store / statut (`App Store`, `Open Source`, …) |
+| `url` | Lien principal (store, site ou dépôt GitHub) |
 | `iconSrc` / `imageSrc` | Chemins sous `/projects/...` (préfixer `basePath` géré par Next en prod via chemins relatifs depuis `public/`) |
 | `tagline` | Phrase courte sous le titre |
 | `work` | Liste « travaux réalisés » / stack mise en avant |
+| `repoStatus` | Précision hors prod (ex. open source disponible sur GitHub) |
 
 ---
 
