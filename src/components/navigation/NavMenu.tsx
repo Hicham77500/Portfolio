@@ -29,17 +29,26 @@ export function NavMenu({ sections, activeId = null, onSectionSelect }: NavMenuP
           <Link
             href={section.href}
             aria-current={isActive ? 'true' : undefined}
-            className={`relative flex items-center justify-between rounded-pill px-4 py-2 text-sm transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus ${
-              isActive ? 'text-accent' : 'text-text-muted hover:text-text'
+            className={`relative flex items-center justify-between rounded-[3px] px-4 py-2 text-sm font-mono transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus ${
+              isActive
+                ? 'text-accent'
+                : 'text-text-muted hover:text-text hover:bg-surface/60'
             }`}
             onClick={handleClick}
           >
-            <span>{section.label}</span>
-            {section.hint && <span className="text-[10px] uppercase tracking-[0.3em] text-text-muted/60">{section.hint}</span>}
+            <span className="flex items-center gap-2">
+              <span className={`text-[10px] transition-opacity ${isActive ? 'opacity-100 text-accent/60' : 'opacity-0'}`} aria-hidden="true">▸</span>
+              {section.label}
+            </span>
+            {section.hint && (
+              <span className="font-mono text-[9px] uppercase tracking-[0.3em] text-text-muted/50">
+                {section.hint}
+              </span>
+            )}
             {isActive && (
               <motion.span
                 layoutId="nav-active-pill"
-                className="absolute inset-0 -z-10 rounded-pill bg-surface-raised"
+                className="absolute inset-0 -z-10 rounded-[3px] bg-surface-raised border border-accent/15"
                 transition={{ type: 'spring', stiffness: 450, damping: 30 }}
                 aria-hidden="true"
               />
@@ -86,45 +95,67 @@ export function NavMenu({ sections, activeId = null, onSectionSelect }: NavMenuP
     <>
       <nav
         aria-label="Navigation principale"
-        className="hidden h-fit w-[256px] flex-shrink-0 flex-col rounded-3xl border border-border bg-surface p-4 text-text shadow-soft lg:flex lg:sticky lg:top-6 lg:self-start"
+        className="hidden h-fit w-[256px] flex-shrink-0 flex-col rounded-[6px] border border-border bg-surface p-4 text-text shadow-soft lg:flex lg:sticky lg:top-6 lg:self-start"
       >
-        <ul className="flex flex-col gap-2">{renderItems()}</ul>
+        {/* Nav header */}
+        <div className="mb-3 border-b border-border/40 pb-3">
+          <p className="font-mono text-[9px] uppercase tracking-[0.38em] text-accent/45">
+            [ SYS.NAV ]
+          </p>
+        </div>
+        <ul className="flex flex-col gap-0.5">{renderItems()}</ul>
+        {/* Status footer */}
+        <div className="mt-3 border-t border-border/40 pt-3">
+          <span className="status-dot font-mono text-[9px] uppercase tracking-[0.22em] text-[#4a8a3e]/55">
+            SYS OPÉRATIONNEL
+          </span>
+        </div>
       </nav>
 
       <div className="w-full lg:hidden">
         <button
           ref={triggerRef}
           type="button"
-          className="inline-flex items-center gap-2 rounded-pill border border-border px-4 py-2 text-sm text-text focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus"
+          className="inline-flex items-center gap-2 rounded-[3px] border border-border/60 bg-surface px-4 py-2 font-mono text-sm uppercase tracking-[0.1em] text-text-muted transition hover:border-accent/30 hover:text-text focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus"
           aria-controls={overlayNavId}
           aria-expanded={isOverlayOpen}
           onClick={() => setOverlayOpen((prev) => !prev)}
         >
-          Menu
-          <span aria-hidden="true">=</span>
+          <span>[ MENU ]</span>
+          <span aria-hidden="true" className="text-accent/60 text-xs">▸</span>
         </button>
         <AnimatePresence>
           {isOverlayOpen && (
             <motion.div
-              className="fixed inset-0 z-50 bg-surface/95 px-6 py-10 text-text backdrop-blur"
+              className="fixed inset-0 z-50 bg-[#04060a]/97 px-6 py-10 text-text backdrop-blur-sm"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
             >
-              <div className="flex items-center justify-between">
-                <h2 className="text-lg font-display">Navigation</h2>
+              <div className="flex items-center justify-between border-b border-border/50 pb-4">
+                <div>
+                  <p className="font-mono text-[9px] uppercase tracking-[0.35em] text-accent/45 mb-1">
+                    [ SYS.NAV ]
+                  </p>
+                  <h2 className="font-display text-lg font-semibold text-text">Navigation</h2>
+                </div>
                 <button
                   ref={closeButtonRef}
                   type="button"
                   onClick={() => setOverlayOpen(false)}
-                  className="rounded-pill border border-border px-4 py-2 text-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus"
+                  className="rounded-[3px] border border-border/60 px-4 py-2 font-mono text-sm uppercase tracking-[0.1em] text-text-muted transition hover:border-accent/30 hover:text-text focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus"
                 >
                   Fermer
                 </button>
               </div>
-              <nav id={overlayNavId} aria-label="Navigation mobile" className="mt-8">
-                <ul className="space-y-4">{renderItems(() => setOverlayOpen(false))}</ul>
+              <nav id={overlayNavId} aria-label="Navigation mobile" className="mt-6">
+                <ul className="space-y-2">{renderItems(() => setOverlayOpen(false))}</ul>
               </nav>
+              <div className="mt-8 pt-4 border-t border-border/30">
+                <span className="status-dot font-mono text-[9px] uppercase tracking-[0.22em] text-[#4a8a3e]/55">
+                  SYS OPÉRATIONNEL
+                </span>
+              </div>
             </motion.div>
           )}
         </AnimatePresence>

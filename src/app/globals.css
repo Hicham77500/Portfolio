@@ -20,7 +20,46 @@ body {
   color: var(--color-text);
   font-family: var(--font-body), system-ui, sans-serif;
   text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
 }
+
+/* Tactical HUD grid overlay */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image:
+    linear-gradient(rgba(201, 168, 80, 0.014) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(201, 168, 80, 0.014) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+
+/* Gold accent line at top of viewport */
+body::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(201, 168, 80, 0.45) 35%,
+    rgba(201, 168, 80, 0.45) 65%,
+    transparent 100%
+  );
+  z-index: 100;
+  pointer-events: none;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 3px; }
+::-webkit-scrollbar-track { background: var(--color-bg-primary); }
+::-webkit-scrollbar-thumb { background: rgba(201, 168, 80, 0.18); border-radius: 2px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(201, 168, 80, 0.38); }
 
 a {
   text-decoration: none;
@@ -54,8 +93,132 @@ section[tabindex="-1"]:focus {
   outline: none;
 }
 
+/* ────────────────────────────────────────────
+   Tactical Keyframes
+──────────────────────────────────────────── */
+
+@keyframes tac-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.25; }
+}
+
+@keyframes tac-blink {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+
+/* ────────────────────────────────────────────
+   Tactical Utility Classes
+──────────────────────────────────────────── */
+
+/* Corner bracket decoration — tactical card style */
+.tac-card {
+  position: relative;
+}
+
+.tac-card::before,
+.tac-card::after {
+  content: '';
+  position: absolute;
+  width: 9px;
+  height: 9px;
+  border-color: rgba(201, 168, 80, 0.28);
+  border-style: solid;
+  pointer-events: none;
+  transition: border-color 220ms ease-out;
+  z-index: 1;
+}
+
+.tac-card::before {
+  top: 0;
+  left: 0;
+  border-width: 1px 0 0 1px;
+}
+
+.tac-card::after {
+  bottom: 0;
+  right: 0;
+  border-width: 0 1px 1px 0;
+}
+
+.tac-card:hover::before,
+.tac-card:hover::after {
+  border-color: rgba(201, 168, 80, 0.6);
+}
+
+/* Card hover ambient effect */
+.tac-hover {
+  transition:
+    border-color 220ms ease-out,
+    box-shadow 220ms ease-out,
+    background-color 220ms ease-out;
+}
+
+.tac-hover:hover {
+  border-color: rgba(201, 168, 80, 0.18) !important;
+  box-shadow: 0 0 28px rgba(201, 168, 80, 0.05), 0 8px 40px rgba(0, 0, 0, 0.5);
+  background-color: rgba(201, 168, 80, 0.015);
+}
+
+/* Online / active status dot */
+.status-dot {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.status-dot::before {
+  content: '';
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: #4a8a3e;
+  box-shadow: 0 0 7px rgba(74, 138, 62, 0.75);
+  animation: tac-pulse 2.5s ease-in-out infinite;
+  flex-shrink: 0;
+}
+
+/* Classification badge */
+.classif-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 1px 7px;
+  font-family: var(--font-mono, ui-monospace, monospace);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  border: 1px solid rgba(201, 168, 80, 0.22);
+  color: rgba(201, 168, 80, 0.65);
+  background: rgba(201, 168, 80, 0.05);
+  border-radius: 1px;
+  white-space: nowrap;
+}
+
+/* Tech stack pill */
+.tech-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 8px;
+  font-family: var(--font-mono, ui-monospace, monospace);
+  font-size: 10px;
+  letter-spacing: 0.05em;
+  border: 1px solid rgba(201, 168, 80, 0.14);
+  color: var(--color-text-muted);
+  background: rgba(201, 168, 80, 0.03);
+  border-radius: 2px;
+}
+
+/* Gold gradient accent underline */
+.accent-underline {
+  display: block;
+  height: 1px;
+  margin-top: 0.75rem;
+  background: linear-gradient(90deg, rgba(201, 168, 80, 0.55) 0%, transparent 100%);
+}
+
 @media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
+  html { scroll-behavior: auto; }
+  .status-dot::before { animation: none; }
 }

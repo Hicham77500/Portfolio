@@ -1,10 +1,11 @@
 import type { Metadata } from 'next';
-import { Space_Grotesk, IBM_Plex_Sans } from 'next/font/google';
+import { Space_Grotesk, IBM_Plex_Sans, IBM_Plex_Mono } from 'next/font/google';
 import '@/styles/design-tokens.css';
 import './globals.css';
 
 const display = Space_Grotesk({ subsets: ['latin'], variable: '--font-display' });
 const body = IBM_Plex_Sans({ subsets: ['latin'], variable: '--font-body', weight: ['400', '500'] });
+const mono = IBM_Plex_Mono({ subsets: ['latin'], variable: '--font-mono', weight: ['400', '500', '600'] });
 
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? '';
 
@@ -51,7 +52,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="fr" className={`${display.variable} ${body.variable}`}>
+    <html lang="fr" className={`${display.variable} ${body.variable} ${mono.variable}`}>
       <body className="min-h-screen bg-base-900 text-text">
         <a href="#main" className="skip-link">Passer au contenu</a>
         <div className="bg-base-900 text-text">

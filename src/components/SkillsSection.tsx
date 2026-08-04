@@ -19,6 +19,8 @@ type SkillsSectionProps = {
   };
 };
 
+const GROUP_CODES = ['CAP-01', 'CAP-02', 'CAP-03'];
+
 export function SkillsSection({
   id = 'skills',
   headingId,
@@ -30,16 +32,27 @@ export function SkillsSection({
   const resolvedHeadingId = headingId ?? `${id}-title`;
 
   return (
-    <section id={id} aria-labelledby={resolvedHeadingId} className="py-14 lg:py-20 border-t border-border/60 text-text">
+    <section id={id} aria-labelledby={resolvedHeadingId} className="border-t border-border/40 py-14 text-text lg:py-20">
       <SectionHeader eyebrow={eyebrow} title={title} headingId={resolvedHeadingId} />
-      <div className="content space-y-6">
-        <div className="grid gap-6 md:grid-cols-3">
-          {groups.map((group) => (
-            <article key={group.title} className="rounded-2xl border border-border bg-surface-raised p-6">
-              <h3 className="text-lg font-semibold text-text">{group.title}</h3>
-              <ul className="mt-3 space-y-2 text-sm text-text-muted">
-                {group.stack.map((point) => (
-                  <li key={point}>{point}</li>
+      <div className="content space-y-4">
+        <div className="grid gap-3 md:grid-cols-3">
+          {groups.map((group, i) => (
+            <article
+              key={group.title}
+              className="tac-card tac-hover rounded-[4px] border border-border bg-surface-raised p-5"
+            >
+              <div className="mb-3 flex items-center justify-between">
+                <h3 className="font-display text-base font-semibold text-text">{group.title}</h3>
+                <span className="font-mono text-[9px] tracking-[0.28em] text-accent/35">
+                  {GROUP_CODES[i] ?? `CAP-${String(i + 1).padStart(2, '0')}`}
+                </span>
+              </div>
+              <ul className="space-y-1.5">
+                {group.stack.map((tech) => (
+                  <li key={tech} className="flex items-center gap-2 text-sm text-text-muted">
+                    <span className="font-mono text-[9px] text-accent/35" aria-hidden="true">▸</span>
+                    {tech}
+                  </li>
                 ))}
               </ul>
             </article>
@@ -47,24 +60,42 @@ export function SkillsSection({
         </div>
 
         {complementary && (
-          <details className="rounded-2xl border border-border bg-surface-raised p-6 text-sm text-text-muted">
-            <summary className="cursor-pointer font-semibold text-text">Technologies complémentaires</summary>
-            <div className="mt-4 grid gap-4 md:grid-cols-2">
+          <details className="tac-card rounded-[4px] border border-border bg-surface-raised text-sm text-text-muted">
+            <summary className="cursor-pointer px-5 py-4 font-mono text-[10px] uppercase tracking-[0.25em] text-text/70 transition hover:text-accent/80 select-none">
+              // Capacités complémentaires
+            </summary>
+            <div className="grid gap-4 border-t border-border/40 p-5 md:grid-cols-2">
               <div>
-                <p className="text-xs font-mono uppercase tracking-[0.25em] text-text-muted">Frontend</p>
-                <p className="mt-1">{complementary.frontend.join(' / ')}</p>
+                <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-accent/50 mb-2">Frontend</p>
+                <div className="flex flex-wrap gap-1.5">
+                  {complementary.frontend.map((tech) => (
+                    <span key={tech} className="tech-pill">{tech}</span>
+                  ))}
+                </div>
               </div>
               <div>
-                <p className="text-xs font-mono uppercase tracking-[0.25em] text-text-muted">Backend</p>
-                <p className="mt-1">{complementary.backend.join(' / ')}</p>
+                <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-accent/50 mb-2">Backend</p>
+                <div className="flex flex-wrap gap-1.5">
+                  {complementary.backend.map((tech) => (
+                    <span key={tech} className="tech-pill">{tech}</span>
+                  ))}
+                </div>
               </div>
               <div>
-                <p className="text-xs font-mono uppercase tracking-[0.25em] text-text-muted">Bases de données</p>
-                <p className="mt-1">{complementary.databases.join(' / ')}</p>
+                <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-accent/50 mb-2">Bases de données</p>
+                <div className="flex flex-wrap gap-1.5">
+                  {complementary.databases.map((tech) => (
+                    <span key={tech} className="tech-pill">{tech}</span>
+                  ))}
+                </div>
               </div>
               <div>
-                <p className="text-xs font-mono uppercase tracking-[0.25em] text-text-muted">Tools</p>
-                <p className="mt-1">{complementary.tools.join(' / ')}</p>
+                <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-accent/50 mb-2">Tools</p>
+                <div className="flex flex-wrap gap-1.5">
+                  {complementary.tools.map((tech) => (
+                    <span key={tech} className="tech-pill">{tech}</span>
+                  ))}
+                </div>
               </div>
             </div>
           </details>

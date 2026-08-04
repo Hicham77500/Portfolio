@@ -1,22 +1,37 @@
 :root {
   color-scheme: dark;
-  --color-bg-primary: #040507;
-  --color-bg-secondary: #0b111b;
-  --color-surface: #101829;
-  --color-surface-raised: #151e34;
-  --color-text: #f5f7fb;
-  --color-text-muted: #b9c1d8;
-  --color-accent: #5de4a8;
-  --color-accent-soft: #2ccf92;
-  --color-border: #1d2538;
-  --color-focus: #9cffd8;
-  --shadow-soft: 0 16px 40px rgba(0, 0, 0, 0.4);
-  --shadow-inset: inset 0 0 0 1px rgba(255, 255, 255, 0.04);
-  --radius-xs: 4px;
-  --radius-sm: 8px;
-  --radius-md: 12px;
-  --radius-lg: 24px;
+
+  /* ── Surfaces ── */
+  --color-bg-primary: #04060a;
+  --color-bg-secondary: #070b10;
+  --color-surface: #0b1018;
+  --color-surface-raised: #0f1722;
+
+  /* ── Text ── */
+  --color-text: #ccd4dd;
+  --color-text-muted: #526070;
+
+  /* ── Accent — Tactical Gold / Amber ── */
+  --color-accent: #c9a850;
+  --color-accent-soft: #a88a3c;
+
+  /* ── Borders ── */
+  --color-border: #1a2633;
+  --color-focus: #c9a850;
+
+  /* ── Shadows ── */
+  --shadow-soft: 0 20px 50px rgba(0, 0, 0, 0.75);
+  --shadow-inset: inset 0 0 0 1px rgba(255, 255, 255, 0.025);
+  --shadow-gold: 0 0 24px rgba(201, 168, 80, 0.12), 0 0 60px rgba(201, 168, 80, 0.04);
+
+  /* ── Radii — angular / tactical ── */
+  --radius-xs: 1px;
+  --radius-sm: 3px;
+  --radius-md: 4px;
+  --radius-lg: 6px;
   --radius-pill: 999px;
+
+  /* ── Motion ── */
   --motion-easing-standard: cubic-bezier(0.22, 1, 0.36, 1);
   --motion-duration-xs: 80ms;
   --motion-duration-sm: 140ms;

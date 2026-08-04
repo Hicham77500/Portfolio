@@ -3,9 +3,9 @@
 import { FormEvent, useState } from 'react';
 
 const fieldClassName =
-  'w-full rounded-2xl border border-border bg-surface/60 px-4 py-3 text-sm text-text placeholder:text-text-muted transition duration-200 ease-out focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus';
+  'w-full rounded-[3px] border border-border bg-surface/50 px-4 py-3 font-mono text-sm text-text placeholder:text-text-muted/40 transition duration-200 ease-out focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus hover:border-accent/20';
 
-const labelClassName = 'text-xs font-mono uppercase tracking-[0.25em] text-text-muted';
+const labelClassName = 'font-mono text-[10px] uppercase tracking-[0.28em] text-accent/55';
 
 const statusStyles: Record<string, string> = {
   success: 'text-accent',
@@ -81,7 +81,7 @@ export function ContactForm({ accessKey }: ContactFormProps) {
 
   return (
     <form
-      className="rounded-2xl border border-border bg-surface-raised p-6 shadow-soft"
+      className="tac-card rounded-[4px] border border-border bg-surface-raised p-6 shadow-soft"
       onSubmit={handleSubmit}
       noValidate
     >
@@ -139,11 +139,13 @@ export function ContactForm({ accessKey }: ContactFormProps) {
         <button
           type="submit"
           disabled={isDisabled}
-          className={`inline-flex items-center justify-center rounded-pill px-6 py-3 text-sm font-semibold transition duration-200 ease-out focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus ${
-            isDisabled ? 'cursor-not-allowed border border-border/60 bg-transparent text-text-muted' : 'bg-accent text-base-900 hover:bg-accent/90'
+          className={`inline-flex items-center justify-center gap-2 rounded-[3px] px-6 py-3 font-mono text-sm font-semibold uppercase tracking-[0.1em] transition duration-200 ease-out focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus ${
+            isDisabled
+              ? 'cursor-not-allowed border border-border/40 bg-transparent text-text-muted/50'
+              : 'bg-accent text-[#04060a] hover:bg-accent/90 hover:shadow-[0_0_20px_rgba(201,168,80,0.25)]'
           }`}
         >
-          {isSubmitting ? 'Envoi...' : 'Envoyer le message'}
+          {isSubmitting ? '// Envoi en cours...' : '// Envoyer la transmission'}
         </button>
       </div>
     </form>
