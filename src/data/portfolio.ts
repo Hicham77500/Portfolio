@@ -130,14 +130,15 @@ export const productionContent = {
 export const productionProjects: ProductionProject[] = [
   {
     title: 'Reply Fitness',
-    tagline: 'Votre contexte fitness, enfin réuni au même endroit',
+    tagline: 'Version 1.4 — parcours simplifié, interface repensée',
     description:
-      'Carnet de suivi intelligent iOS : nutrition, entraînement, progression et export de contexte structuré vers l’IA de votre choix. Disponible gratuitement sur l’App Store.',
+      'Carnet de suivi fitness iOS : nutrition, entraînement et export de contexte structuré vers l’IA de votre choix (ChatGPT, Claude, Gemini…). La 1.4 apporte une navigation repensée, une communauté affinée, un mode vue simplifié et une refonte graphique.',
     work: [
       'SwiftUI / Swift 6 / SwiftData',
       'Firebase Auth + Cloud Firestore',
       'Export IA (Markdown / JSON) · RGPD',
-      'Publié App Store (V1.0)',
+      'Navigation repensée · mode vue simplifié · programmes personnalisés',
+      'Publié App Store (v1.4)',
     ],
     url: 'https://apps.apple.com/fr/app/reply-fitness/id6785667481',
     badge: 'App Store',

@@ -103,14 +103,14 @@ export function ProductionSection({
               </div>
 
               {project.imageSrc && (
-                <div className="w-full shrink-0 border-t border-border/50 bg-surface/50 p-4 sm:p-5 xl:w-[min(52%,34rem)] xl:border-l xl:border-t-0 xl:p-6">
+                <div className="flex w-full shrink-0 items-center justify-center border-t border-border/50 bg-surface/50 p-4 sm:p-5 xl:w-[min(52%,34rem)] xl:border-l xl:border-t-0 xl:p-6">
                   {/* eslint-disable-next-line @next/next/no-img-element -- static GH Pages needs explicit basePath */}
                   <img
                     src={withBasePath(project.imageSrc)}
                     alt={`Aperçu ${project.title}`}
                     width={950}
                     height={1024}
-                    className="mx-auto h-auto w-full max-w-md rounded-[3px] object-contain opacity-90 xl:max-h-[min(85vh,42rem)] xl:max-w-none"
+                    className="block h-auto w-full max-w-md rounded-[3px] object-contain opacity-90 xl:max-h-[min(85vh,42rem)] xl:max-w-none"
                     loading="lazy"
                     decoding="async"
                   />
